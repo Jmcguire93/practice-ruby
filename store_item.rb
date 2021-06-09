@@ -2,11 +2,9 @@
 # item2 = {product: "Keyboard", color: "grey", price: 50}
 # item3 = {product: "Mouse", color: "white", price: 45}
 
-
 # puts "The product is a #{item1[:color]} #{item1[:product]} that costs $#{item1[:price]}."
 # puts "The product is a #{item2[:color]} #{item2[:product]} that costs $#{item2[:price]}."
 # puts "The product is a #{item3[:color]} #{item3[:product]} that costs $#{item3[:price]}."
-
 
 
 # class Store
@@ -53,9 +51,6 @@
 
 # item1.add_tax
 # p item1.price
-
-
-
 
 
 class Store
