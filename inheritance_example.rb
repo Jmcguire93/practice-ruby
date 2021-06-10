@@ -22,13 +22,31 @@ class Vehicle
 end
 
 class Car < Vehicle
+  #attr_reader :make, :model, :fuel
+  #attr_writer :make, :model, :fuel
+  attr_accessor :make, :model, :fuel
   
+  def initialize()
+    super
+    @make = make
+    @model = model
+    @fuel = fuel
+  end
+
   def honk_horn
     puts "Beeeeeeep!"
   end
 end
 
 class Bike < Vehicle
+  attr_reader :type, :weight
+  attr_writer :type, :weight
+  
+  def initialize()
+    super
+    @type = type
+    @weight = weight
+  end
 
   def ring_bell
     puts "Ring ring!"
@@ -47,3 +65,4 @@ p car.accelerate  #=> 10
 car.accelerate 
 p car.accelerate  #=> 30
 p car.speed       #=> 30
+p car.make=("Honda")
