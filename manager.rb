@@ -26,9 +26,9 @@ class Employee
   #   puts @active
   # end
 
-  # def active=(active)
-  #   @active = active
-  # end
+  def active=(active)
+    @active = active
+  end
 
   def give_annual_raise
     @salary = 1.05 * @salary
@@ -80,6 +80,16 @@ class Manager < Employee
     end
     #puts @salary
   end
+
+  def fire_all_employees
+    i = 0
+    while i < @employees.length
+      @employees.each do |employee|
+        employee.active=(false)
+      end
+      i += 1
+    end
+  end
 end
 
 manager = Manager.new({first_name: "Sharon", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2]})
@@ -87,4 +97,9 @@ manager.print_info
 manager.send_report
 manager.give_all_raises
 p employee1.salary
+p employee2.salary
 employee1.print_info
+employee2.print_info
+manager.fire_all_employees
+p employee1.active
+p employee2.active
