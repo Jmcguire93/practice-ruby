@@ -56,10 +56,10 @@
 class Store
   attr_reader :product, :color, :price
   
-  def initialize(product, color, price)
-    @product = product
-    @color = color
-    @price = price
+  def initialize(input_options)
+    @product = input_options[:product]
+    @color = input_options[:color]
+    @price = input_options[:price]
   end
   
   def add_tax
@@ -72,9 +72,9 @@ class Store
 
 end
 
-item1 = Store.new("Computer", "black", 800)
-item2 = Store.new("Keyboard", "grey", 50)
-item3 = Store.new("Mouse", "black", 45)
+item1 = Store.new({product: "Computer", color: "black", price: 800})
+item2 = Store.new({product: "Keyboard", color: "grey", price: 50})
+item3 = Store.new({product: "Mouse", color: "black", price: 45})
 
 item1.print_info
 p item1.product
