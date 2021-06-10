@@ -1,4 +1,6 @@
 class Employee
+  attr_reader :first_name, :last_name, :salary, :active
+  attr_writer :first_name, :last_name, :salary, :active
 
   def initialize(input_options)
     @first_name = input_options[:first_name]
@@ -12,21 +14,21 @@ class Employee
     puts "#{@first_name} #{@last_name} makes $#{@salary} a year."
   end
   
-  def first_name
-    puts @first_name
-  end
+  # def first_name
+  #   puts @first_name
+  # end
 
-  def last_name
-    puts @last_name
-  end
+  # def last_name
+  #   puts @last_name
+  # end
 
-  def active
-    puts @active
-  end
+  # def active
+  #   puts @active
+  # end
 
-  def active=(active)
-    @active = active
-  end
+  # def active=(active)
+  #   @active = active
+  # end
 
   def give_annual_raise
     @salary = 1.05 * @salary
@@ -51,6 +53,16 @@ employee1.active
 
 
 class Manager < Employee
+  
+  def initialize(input_options)
+    super
+    @employees = input_options[:employees]
+  end
+
+  def print_info
+    super 
+    puts @employees
+  end
 
   def send_report
     puts "Sending email..."
@@ -59,6 +71,6 @@ class Manager < Employee
   end
 end
 
-manager = Manager.new({first_name: "Sharon", last_name: "Yitbarek", salary: 100000, active: true})
+manager = Manager.new({first_name: "Sharon", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2]})
 manager.print_info
 manager.send_report
