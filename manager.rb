@@ -71,23 +71,14 @@ class Manager < Employee
   end
 
   def give_all_raises
-    i = 0
-    while i < @employees.length
-      @employees.each do |employee|
-        employee.give_annual_raise
-      end
-      i += 1
-    end
-    #puts @salary
+    @employees.each do |employee|
+      employee.give_annual_raise
+    end   
   end
 
   def fire_all_employees
-    i = 0
-    while i < @employees.length
-      @employees.each do |employee|
-        employee.active=(false)
-      end
-      i += 1
+    @employees.each do |employee|
+      employee.active=(false)
     end
   end
 end
